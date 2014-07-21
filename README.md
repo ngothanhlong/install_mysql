@@ -99,7 +99,10 @@ FLUSH PRIVILEGES;
 -Xóa  quyền :
 
 ```
-  REVOKE [quyền] ON [tên database].[tên table] TO '[user]'@'localhost';
+  REVOKE [quyền] ON [tên database].[tên table] FROM '[user]'@'localhost';
+  example :
+     REVOKE INSERT ON *.* FROM 'jeffrey'@'localhost';
+
 ````
 
 3. Ví dụ:
