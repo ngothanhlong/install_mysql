@@ -91,6 +91,7 @@ SET PASSWORD FOR <Tên user>=PASSWORD('password');
     SELECT-cho phép thực hiện lệnh SELECT để query dữ liệu
     UPDATE- cho phép cập nhật record trong table
     GRANT OPTION- cho phép thực hiện tác vụ phân quyền cho user khác
+    (GRANT GRANT OPTION .....)
 ```
 - Để quyền có hiệu lực cần thực hiện lệnh sau:
 ```
