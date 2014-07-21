@@ -110,6 +110,39 @@ FLUSH PRIVILEGES;
 
 
 BAI 1:
+  
+BANG KHUVUC
+ 
+| Trường        |     Kiểu DL   |
+| ------------- | ------------  | 
+|  IDKHUVUC     |   VARCHAR(20) |
+| TENLKHUVUC    |  VARCHAR(30)  |
+| PhongQL       |  VARCHAR(10)  |
+
+
+-------
+
+BANG DAY
+
+| Trường        |     Kiểu DL   |
+| ------------- | ------------  | 
+|  STTDay       |    INT        |
+| IDKHUVUC      |  VARCHAR(20)  |
+|  TEN          |  VARCHAR(30)  |
+| PHONGbv       |  VARCHAR(10)  |
+
+----------
+
+
+| Trường        |     Kiểu DL   |
+| ------------- | ------------  | 
+|  IDKHUVUC     |  VARCHAR(20)  |
+|  IDPHONG      |  VARCHAR(10)  |
+|  STT          |  INT          |
+|  SucChua
+
+  
+
 ```
 mysql> CREATE DATABASE KTX;
 
