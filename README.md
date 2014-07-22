@@ -327,3 +327,4 @@ mysql> INSERT INTO DOISX VALUES ('1','DOI_1','1',);
 mysql> INSERT INTO DOISX VALUES ('2','DOI_2','2',);
 mysql> INSERT INTO DOISX VALUES ('3','DOI_3','3',);
 ```
+Kết thúc quá trình cài đặt và sử dụng
