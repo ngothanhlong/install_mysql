@@ -114,8 +114,9 @@ SET PASSWORD FOR <Tên user>=PASSWORD('password');
     sudo apt-get install mysql-client -y
   ```
  - B2: Trên máy server . Ta chỉnh file cấu hình /etc/mysql/my.cnf
-   ````
-          [mysqld]
+   
+    ```
+          [mysqld] 
           user            = mysql
           pid-file        = /var/run/mysqld/mysqld.pid
           socket          = /var/run/mysqld/mysqld.sock
@@ -126,7 +127,7 @@ SET PASSWORD FOR <Tên user>=PASSWORD('password');
           language        = /usr/share/mysql/English
           bind-address    = IP_Server
          # skip-networking
-   ````
+   ```
 
 
 - B3: Lưu và đóng tập tin . khởi động lại dịch vụ:
@@ -134,15 +135,17 @@ SET PASSWORD FOR <Tên user>=PASSWORD('password');
    sudo service mysql restart
  ```
 - B4: Gán quyền truy cập cho địa chỉ IP:
+
  ```
    mysql -u root -p password
    mysql> CREATE DATABASE foo;
    mysql> GRANT ALL ON foo.* TO bar@’202.54.10.20′ IDENTIFIED BY ‘PASSWORD’;
-```
+ ```
 - B5 : Mở port mysql 3306:
- ```
+
+ ````
    /sbin/iptables -A INPUT -i eth0 -p tcp –destination-port 3306 -j ACCEPT
- ```
+ ````
   hoặc chỉ cho phép truy cập từ xa từ máy chủ  web đặt ở IP-server:
  ```
    /sbin/iptables -A INPUT -i eth0 -s 10.5.1.3 -p tcp –destination-port 3306 -j ACCEPT
