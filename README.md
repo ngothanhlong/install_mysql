@@ -105,7 +105,10 @@ FLUSH PRIVILEGES;
      REVOKE INSERT ON *.* FROM 'jeffrey'@'localhost';
 
 ````
-
+-Back up du lieu:
+   ```
+           mysqldump -u root -p [tendatabase] > [name.sql];
+   ```
 3. Ví dụ:
 
 
