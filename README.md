@@ -93,22 +93,80 @@ SET PASSWORD FOR <Tên user>=PASSWORD('password');
     GRANT OPTION- cho phép thực hiện tác vụ phân quyền cho user khác
     (GRANT GRANT OPTION .....)
 ```
+
 - Để quyền có hiệu lực cần thực hiện lệnh sau:
-```
-FLUSH PRIVILEGES;
-```
--Xóa  quyền :
+````
+  FLUSH PRIVILEGES;
+````
+
+- Xóa  quyền :
 
 ```
   REVOKE [quyền] ON [tên database].[tên table] FROM '[user]'@'localhost';
-  example :
-     REVOKE INSERT ON *.* FROM 'jeffrey'@'localhost';
-
 ````
--Back up du lieu:
+
+#### IV.Phân quyền truy cập : 
+ 
+ - Cho phép các máy truy cập và sử dụng databases;
+ 
+ - B1 : Trên máy client  cài gói:
+  ```
+    sudo apt-get install mysql-client -y
+  ```
+ - B2: Trên máy server . Ta chỉnh file cấu hình /etc/mysql/my.cnf
+   ````
+          [mysqld]
+          user            = mysql
+          pid-file        = /var/run/mysqld/mysqld.pid
+          socket          = /var/run/mysqld/mysqld.sock
+          port            = 3306
+          basedir         = /usr
+          datadir         = /var/lib/mysql
+          tmpdir          = /tmp
+          language        = /usr/share/mysql/English
+          bind-address    = IP_Server
+         # skip-networking
+   ````
+
+
+- B3: Lưu và đóng tập tin . khởi động lại dịch vụ:
+ ```
+   sudo service mysql restart
+ ```
+- B4: Gán quyền truy cập cho địa chỉ IP:
+ ```
+   mysql -u root -p password
+   mysql> CREATE DATABASE foo;
+   mysql> GRANT ALL ON foo.* TO bar@’202.54.10.20′ IDENTIFIED BY ‘PASSWORD’;
+```
+- B5 : Mở port mysql 3306:
+ ```
+   /sbin/iptables -A INPUT -i eth0 -p tcp –destination-port 3306 -j ACCEPT
+ ```
+  hoặc chỉ cho phép truy cập từ xa từ máy chủ  web đặt ở IP-server:
+ ```
+   /sbin/iptables -A INPUT -i eth0 -s 10.5.1.3 -p tcp –destination-port 3306 -j ACCEPT
+ ```
+  hoặc chỉ cho phép truy cập từ xa từ subnet của mạng LAN của bạn 192.168.1.0/24:
+  ```
+    /sbin/iptables -A INPUT -i eth0 -s 192.168.1.0/24 -p tcp –destination-port 3306 -j ACCEPT
+  ```
+- B4 :Test :
+  Trên máy client :
+  ```
+    mysql -u demo -pdemo -h 192.168.1.15 
+  ```
+- Bạn có thể dùng phần mềm navicat để truy cập vào server
+#### V.Backup du lieu:
+
+- Back up du lieu:
    ```
            mysqldump -u root -p [tendatabase] > [name.sql];
    ```
+
+
+
+
 3. Ví dụ:
 
 
