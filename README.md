@@ -125,7 +125,7 @@ SET PASSWORD FOR <Tên user>=PASSWORD('password');
           datadir         = /var/lib/mysql
           tmpdir          = /tmp
           language        = /usr/share/mysql/English
-          bind-address    = IP_Server
+          bind-address    = 192.168.1.15 # ip server
          # skip-networking
    ```
 
@@ -139,7 +139,7 @@ SET PASSWORD FOR <Tên user>=PASSWORD('password');
  ```
    mysql -u root -p password
    mysql> CREATE DATABASE foo;
-   mysql> GRANT ALL ON foo.* TO bar@’202.54.10.20′ IDENTIFIED BY ‘PASSWORD’;
+   mysql> GRANT ALL ON foo.* TO demo@'192.168.1.10′ IDENTIFIED BY ‘PASSWORD’;
  ```
 - B5 : Mở port mysql 3306:
 
