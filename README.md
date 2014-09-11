@@ -152,7 +152,7 @@ SET PASSWORD FOR <Tên user>=PASSWORD('password');
  ```
   hoặc chỉ cho phép truy cập từ xa từ subnet của mạng LAN của bạn 192.168.1.0/24:
   ```
-    /sbin/iptables -A INPUT -i eth0 -s 192.168.1.0/24 -p tcp –destination-port 3306 -j ACCEPT
+    /sbin/iptables -A INPUT -p tcp -i eth0 -s 192.168.1.0/24  –-dport 3306 -j ACCEPT
   ```
 - B4 :Test :
   Trên máy client :
