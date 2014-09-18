@@ -50,7 +50,10 @@ SHOW DATABASE;
 ```
 2.Tạo 1 bảng:
 ```
-CREATE TABLE <tên bảng>;
+ CREATE TABLE <Ten table>(
+-> <Truong_1 > <Kieu_du_lieu> ,
+-> PRIMARY KEY (<Ten_Khoa),
+->);
 ```
 3.Nhập data vào table: 
 ```
